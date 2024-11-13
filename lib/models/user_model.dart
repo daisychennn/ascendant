@@ -51,4 +51,11 @@ class UserModel {
     List<String> getBigThree() {
       return bigThree;
     }
+
+    // Setting for prompts
+    // Inputs: which prompt number is being set (1-3), a string question, a string answer
+    void setPrompts(int promptNum, String q, String a) {
+      prompts[promptNum-1][0] = q;
+      prompts[promptNum-1][1] = a;
+    }
 }
