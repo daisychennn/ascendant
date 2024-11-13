@@ -1,5 +1,0 @@
-class user_model {
-    String? picture;
-    String? name;
-    int? age;
-}
