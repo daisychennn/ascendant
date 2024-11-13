@@ -1,1 +1,0 @@
-import 'package:ascendant/models/user_model.dart';
