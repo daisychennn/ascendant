@@ -1,13 +1,13 @@
 import 'dart:io';
 
-class user_model {
+class UserModel {
     File? picture; // Pictures only done through file upload
     String? name;
     int? age;
     List<List<String>> prompts = List.empty(); // Set of three prompts with question/answer list
     List<String> bigThree = List.empty(); // List of three astrological signs
 
-    user_model.createUser(Map<String, dynamic> json) {
+    UserModel.createUser(Map<String, dynamic> json) {
       // Setting objects present in all profiles
       picture = json['picture'];
       name = json['name'];
