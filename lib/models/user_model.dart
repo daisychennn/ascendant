@@ -7,6 +7,12 @@ class UserModel {
     List<List<String>> prompts = List.empty(); // Set of three prompts with question/answer list
     List<String> bigThree = List.empty(); // List of three astrological signs
 
+    // Getter methods for select objects
+    File? get getPicture => picture;
+    String? get getName => name;
+    int? get getAge => age;
+
+    // Constructor for UserModel object
     UserModel.createUser(Map<String, dynamic> json) {
       // Setting objects present in all profiles
       picture = json['picture'];
@@ -31,5 +37,18 @@ class UserModel {
           } 
         }
       }
+    }
+
+    // Getter method for prompts
+    List<List<String>>? getPrompts() {
+      if (prompts.isNotEmpty) {
+        return prompts;
+      }
+      return null;
+    }
+
+    // Getter method for Big Three Sign list
+    List<String> getBigThree() {
+      return bigThree;
     }
 }
