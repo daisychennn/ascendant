@@ -1,3 +1,3 @@
-class messaging_model {
-    String
+class MessagingModel {
+    String? matchName;
 }
