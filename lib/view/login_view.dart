@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ascendant/view/my_button.dart';
 import 'package:ascendant/view/my_textfield.dart';
+import 'package:ascendant/view/create_profile_view.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -38,41 +39,7 @@ class LoginPage extends StatelessWidget {
                 obsecureText: true,
               ),
               const SizedBox(height: 20),
-              Text(
-                'Forgot Password?',
-                style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontSize: 13,
-                ),
-              ),
-              const SizedBox(height: 20),
-              const MyButton(),
-              const SizedBox(height: 90),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Don\'t have an account?',
-                      style: TextStyle(
-                        color: Colors.grey.shade600,
-                        fontSize: 13,
-                      ),
-                    ),
-                    const SizedBox(width: 5.0),
-                    Text(
-                      'Create',
-                      style: TextStyle(
-                        color: Colors.grey.shade600,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-
-                  ],
-                ),
-              )
+              const MyButton()
             ],
           ),
         ),
