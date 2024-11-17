@@ -12,7 +12,19 @@ class AccountView extends StatefulWidget {
 
 class _AccountView extends State<AccountView> {
   TextEditingController prompt1 = TextEditingController(text: 'Prompt 1');
-  bool isEnabled = false;
+  bool isEnabledP1 = false;
+  TextEditingController answer1 = TextEditingController(text: 'Answer 1');
+  bool isEnabledA1 = false;
+
+  TextEditingController prompt2 = TextEditingController(text: 'Prompt 2');
+  bool isEnabledP2 = false;
+  TextEditingController answer2 = TextEditingController(text: 'Answer 2');
+  bool isEnabledA2 = false;
+
+  TextEditingController prompt3 = TextEditingController(text: 'Prompt 3');
+  bool isEnabledP3 = false;
+  TextEditingController answer3 = TextEditingController(text: 'Answer 3');
+  bool isEnabledA3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +75,7 @@ class _AccountView extends State<AccountView> {
               children: <Widget> [
               // User Information that can't be edited
               const Expanded(
-                flex: 5,
+                flex: 4,
                 child: Column(
                   children: [
                     Text('Name'),
@@ -76,38 +88,153 @@ class _AccountView extends State<AccountView> {
               ),
               // User information that can be edited
               Expanded(
-                flex: 5,
+                flex: 6,
                 child: Column(
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                    SizedBox(
-                      width: 100,
-                      child: TextField(
-                        controller: prompt1,
-                        enabled: isEnabled,
+                      SizedBox(
+                        width: 100,
+                        child: TextField(
+                          controller: prompt1,
+                          enabled: isEnabledP1,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.edit,
-                        size: 25.0
+                      IconButton(
+                        icon: Icon(
+                          isEnabledP1 ? Icons.check : Icons.edit,
+                          size: 25.0
                       ),
                       onPressed: () {
                         setState(() {
-                          isEnabled = true;
+                          if (isEnabledP1) {
+                            isEnabledP1 = false;
+                          }
+                          else {
+                            isEnabledP1 = true;
+                          }
                         });
                       }
                     ),
-                    const Text('Answer 1')
+                    SizedBox(
+                        width: 100,
+                        child: TextField(
+                          controller: answer1,
+                          enabled: isEnabledA1,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isEnabledA1 ? Icons.check : Icons.edit,
+                          size: 25.0
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (isEnabledA1) {
+                            isEnabledA1 = false;
+                          }
+                          else {
+                            isEnabledA1 = true;
+                          }
+                        });
+                      }
+                    )
                   ],),
-                  const Row(children: [
-                    Text('Prompt 2'),
-                    Text('Answer 2')
+                  Row(children: [
+                    SizedBox(
+                        width: 100,
+                        child: TextField(
+                          controller: prompt2,
+                          enabled: isEnabledP2,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isEnabledP2 ? Icons.check : Icons.edit,
+                          size: 25.0
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (isEnabledP2) {
+                            isEnabledP2 = false;
+                          }
+                          else {
+                            isEnabledP2 = true;
+                          }
+                        });
+                      }
+                    ),
+                    SizedBox(
+                        width: 100,
+                        child: TextField(
+                          controller: answer2,
+                          enabled: isEnabledA2,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isEnabledA2 ? Icons.check : Icons.edit,
+                          size: 25.0
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (isEnabledA2) {
+                            isEnabledA2 = false;
+                          }
+                          else {
+                            isEnabledA2 = true;
+                          }
+                        });
+                      }
+                    )
                   ],),
-                  const Row(children: [
-                    Text('Prompt 3'),
-                    Text('Answer 3')
+                  Row(children: [
+                    SizedBox(
+                        width: 100,
+                        child: TextField(
+                          controller: prompt3,
+                          enabled: isEnabledP3,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isEnabledP3 ? Icons.check : Icons.edit,
+                          size: 25.0
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (isEnabledP3) {
+                            isEnabledP3 = false;
+                          }
+                          else {
+                            isEnabledP3 = true;
+                          }
+                        });
+                      }
+                    ),
+                    SizedBox(
+                        width: 100,
+                        child: TextField(
+                          controller: answer3,
+                          enabled: isEnabledA3,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isEnabledA3 ? Icons.check : Icons.edit,
+                          size: 25.0
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (isEnabledA3) {
+                            isEnabledA3 = false;
+                          }
+                          else {
+                            isEnabledA3 = true;
+                          }
+                        });
+                      }
+                    )
                   ],)
                 ])
               )
