@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
   void _navigateToCreateProfile(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const SignUpFormWidget()),
+      MaterialPageRoute(builder: (context) => SignUpFormWidget()),
     );
   }
 
