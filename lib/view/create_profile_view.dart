@@ -53,21 +53,21 @@ class SignUpFormWidget extends StatelessWidget {
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text('Sun sign'),
-                  prefixIcon: Icon(Icons.format_color_text),
+                  prefixIcon: Icon(Icons.wb_sunny),
                 ),
               ),
               const SizedBox(height: 20),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text('Moon sign'),
-                  prefixIcon: Icon(Icons.format_color_text),
+                  prefixIcon: Icon(Icons.shield_moon_outlined),
                 ),
               ),
               const SizedBox(height: 20),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text('Rising sign'),
-                  prefixIcon: Icon(Icons.format_color_text),
+                  prefixIcon: Icon(Icons.star_purple500_outlined),
                 ),
               ),
               const SizedBox(height: 20),
