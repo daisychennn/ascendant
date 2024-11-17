@@ -9,25 +9,25 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  //const MyApp({super.key});
+  const MyApp({super.key});
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return GetMaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     home: LoginPage(),
-  //   );
-  // }
-
-  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
-      themeMode: ThemeMode.light,
-      title: 'Chatter',
-      home: HomeScreen(),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
     );
   }
+
+  // const MyApp({Key? key}) : super(key: key);
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     theme: AppTheme.light(),
+  //     darkTheme: AppTheme.dark(),
+  //     themeMode: ThemeMode.light,
+  //     title: 'Chatter',
+  //     home: HomeScreen(),
+  //   );
+  // }
 }
