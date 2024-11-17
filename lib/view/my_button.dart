@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:ascendant/view/create_profile_view.dart';
 import 'package:get/get.dart';
+import 'package:ascendant/view/create_profile_view.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({super.key});
+  final VoidCallback onLoginPressed;
+  final VoidCallback onCreateProfilePressed;
+
+  const MyButton({
+    super.key,
+    required this.onLoginPressed,
+    required this.onCreateProfilePressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +18,6 @@ class MyButton extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Login Button with rounded rectangle border
           Container(
             padding: const EdgeInsets.all(10),
             margin: const EdgeInsets.symmetric(horizontal: 130),
@@ -19,20 +25,22 @@ class MyButton extends StatelessWidget {
               color: Colors.blue,
               borderRadius: BorderRadius.circular(50),
             ),
-            child: const Center(
-              child: Text(
-                'Login',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+            child: GestureDetector(
+              onTap: onLoginPressed,
+              child: const Center(
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 20), // Space between the two buttons
+          const SizedBox(height: 20),
           
-          // Create Profile Button with rounded rectangle border
           Container(
             padding: const EdgeInsets.all(10),
             margin: const EdgeInsets.symmetric(horizontal: 130),
@@ -40,13 +48,10 @@ class MyButton extends StatelessWidget {
               color: Colors.blue,
               borderRadius: BorderRadius.circular(50),
             ),
-            child: Center(
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.transparent), // Remove border
-                ),
-                onPressed: () => Get.to(() => SignUpFormWidget()), // Removed `const` here
-                child: const Text(
+            child: GestureDetector(
+              onTap: onCreateProfilePressed,
+              child: const Center(
+                child: Text(
                   'Create Profile',
                   style: TextStyle(
                     color: Colors.white,

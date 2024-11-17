@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ascendant/view/survey_view.dart';
+import 'package:get/get.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({Key? key}) : super(key: key);
@@ -6,6 +8,7 @@ class SignUpFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold( // Wrap in Scaffold
+      backgroundColor: const Color.fromRGBO(235, 168, 248, 1.0),
       appBar: AppBar(
         title: const Text('Create Profile'),
       ),
@@ -53,28 +56,28 @@ class SignUpFormWidget extends StatelessWidget {
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text('Sun sign'),
-                  prefixIcon: Icon(Icons.format_color_text),
+                  prefixIcon: Icon(Icons.wb_sunny),
                 ),
               ),
               const SizedBox(height: 20),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text('Moon sign'),
-                  prefixIcon: Icon(Icons.format_color_text),
+                  prefixIcon: Icon(Icons.shield_moon_outlined),
                 ),
               ),
               const SizedBox(height: 20),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text('Rising sign'),
-                  prefixIcon: Icon(Icons.format_color_text),
+                  prefixIcon: Icon(Icons.star_purple500_outlined),
                 ),
               ),
               const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => Survey()),
                   child: const Text('SIGN UP'),
                 ),
               ),
