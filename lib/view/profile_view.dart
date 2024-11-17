@@ -26,14 +26,6 @@ class _ProfileView extends State<ProfileView> {
                     'images/logo_stars.png',
                     width: 50.0,
                   ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-                  child: Icon(
-                    Icons.account_circle_rounded,
-                    color: Colors.purple,
-                    size: 50.0
-                  )
                 )
               ]
             ),
