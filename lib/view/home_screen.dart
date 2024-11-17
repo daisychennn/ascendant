@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   final pages = const [
     AccountView(),
     ProfileView(),
-    MessagesView(),
+    MessagesListView(),
   ];
 
   final pageTitles = const [

@@ -8,8 +8,8 @@ import 'package:ascendant/view/messages_view.dart';
 import 'package:ascendant/helpers.dart';
 import 'package:jiffy/jiffy.dart';
 
-class MessagesView extends StatelessWidget {
-  const MessagesView({Key? key}) : super(key: key);
+class MessagesListView extends StatelessWidget {
+  const MessagesListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
