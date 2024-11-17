@@ -16,19 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HomeScreen(),
     );
   }
-
-  // const MyApp({Key? key}) : super(key: key);
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     theme: AppTheme.light(),
-  //     darkTheme: AppTheme.dark(),
-  //     themeMode: ThemeMode.light,
-  //     title: 'Chatter',
-  //     home: HomeScreen(),
-  //   );
-  // }
 }

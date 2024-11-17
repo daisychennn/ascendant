@@ -4,6 +4,7 @@ import 'package:ascendant/widgets/avatar.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:ascendant/view/messages_view.dart';
+import 'package:get/get.dart';
 
 import 'package:ascendant/helpers.dart';
 import 'package:jiffy/jiffy.dart';
@@ -48,9 +49,7 @@ class _Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {
-          // Navigator.of(context).push(MessagesView.route(messageModel));
-        },
+        onTap: () => Get.to(MessagesView()),
         child: Container(
             height: 75,
             margin: const EdgeInsets.symmetric(horizontal: 8),
