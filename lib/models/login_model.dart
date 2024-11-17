@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
 
-
-class LoginModel with ChangeNotifier{
+class LoginModel with ChangeNotifier {
   final String username;
   final String password;
+  final String fullName;
+  final String email;
+  final String phoneNumber;
+  final String biography;
+  final String sunSign;
+  final String moonSign;
+  final String risingSign;
 
-  LoginModel({required this.username, required this.password});
+  LoginModel({
+    required this.username,
+    required this.password,
+    required this.fullName,
+    required this.email,
+    required this.phoneNumber,
+    required this.biography,
+    required this.sunSign,
+    required this.moonSign,
+    required this.risingSign,
+  });
 }
 
 
