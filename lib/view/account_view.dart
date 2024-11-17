@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // import 'package:ascendant/view_model/account_view_model.dart';
@@ -34,15 +35,12 @@ class _AccountView extends State<AccountView> {
         child: SingleChildScrollView(
           child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-                  child: Image.asset(
-                    'images/logo_stars.png',
-                    width: 50.0,
-                  ),
+                Padding(padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+                  child: Icon(CupertinoIcons.sparkles, color: Colors.yellowAccent, size: 50.0),
                 )
               ],
             ),
