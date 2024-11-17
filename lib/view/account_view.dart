@@ -31,7 +31,8 @@ class _AccountView extends State<AccountView> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(235, 168, 248, 1.0),
       body: Center(
-        child: Column(
+        child: SingleChildScrollView(
+          child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,24 +43,16 @@ class _AccountView extends State<AccountView> {
                     'images/logo_stars.png',
                     width: 50.0,
                   ),
-                ),
-                const Padding(
-                    padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-                    child: Icon(
-                      Icons.account_circle_rounded,
-                      color: Colors.purple,
-                      size: 50.0
-                    )
-                ),
+                )
               ],
             ),
             Center(
               child:
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 20.0, 20.0, 20.0),
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 20.0),
                   child: Container(
-                      width: 400,
-                      height: 400,
+                      width: 200,
+                      height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.purpleAccent,
@@ -73,28 +66,33 @@ class _AccountView extends State<AccountView> {
                 ),
               )
             ),
-            Row(
+            const Text('Name'),
+                    const Text('Age'),
+                    const Text('Sun'),
+                    const Text('Moon'),
+                    const Text('Rising'),
+            const Row(
               children: <Widget> [
               // User Information that can't be edited
-              const Expanded(
-                flex: 4,
+              Expanded(
+                flex: 3,
                 child: Column(
                   children: [
-                    Text('Name'),
-                    Text('Age'),
-                    Text('Sun'),
-                    Text('Moon'),
-                    Text('Rising')
+                    
                   ]
                 ),
               ),
+              ]),
               // User information that can be edited
-              Expanded(
-                flex: 6,
+              Center(
+                // flex: 7,
                 child: Column(
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
+                  // Row(
+                    // children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
                       SizedBox(
                         width: 100,
                         child: TextField(
@@ -118,6 +116,10 @@ class _AccountView extends State<AccountView> {
                         });
                       }
                     ),
+                  ],),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                     SizedBox(
                         width: 100,
                         child: TextField(
@@ -140,9 +142,11 @@ class _AccountView extends State<AccountView> {
                           }
                         });
                       }
-                    )
+                    ),
                   ],),
-                  Row(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                     SizedBox(
                         width: 100,
                         child: TextField(
@@ -166,7 +170,11 @@ class _AccountView extends State<AccountView> {
                         });
                       }
                     ),
-                    SizedBox(
+                  ]),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
                         width: 100,
                         child: TextField(
                           controller: answer2,
@@ -188,9 +196,11 @@ class _AccountView extends State<AccountView> {
                           }
                         });
                       }
-                    )
+                    ),
                   ],),
-                  Row(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                     SizedBox(
                         width: 100,
                         child: TextField(
@@ -214,7 +224,11 @@ class _AccountView extends State<AccountView> {
                         });
                       }
                     ),
-                    SizedBox(
+                  ]),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+SizedBox(
                         width: 100,
                         child: TextField(
                           controller: answer3,
@@ -240,10 +254,10 @@ class _AccountView extends State<AccountView> {
                   ],)
                 ])
               )
-            ])
           ],
         ),
       ),
+      )
     );
   }
 }

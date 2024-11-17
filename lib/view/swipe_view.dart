@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfileView extends StatefulWidget {
-  const ProfileView({super.key});
+class SwipeView extends StatefulWidget {
+  const SwipeView({super.key});
 
   @override
-  State<ProfileView> createState() => _ProfileView();
+  State<SwipeView> createState() => _SwipeView();
 }
 
-class _ProfileView extends State<ProfileView> {
+class _SwipeView extends State<SwipeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,14 +26,6 @@ class _ProfileView extends State<ProfileView> {
                     'images/logo_stars.png',
                     width: 50.0,
                   ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-                  child: Icon(
-                    Icons.account_circle_rounded,
-                    color: Colors.purple,
-                    size: 50.0
-                  )
                 )
               ]
             ),
