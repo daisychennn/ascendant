@@ -14,7 +14,7 @@ class LoginViewModel {
   // Method to handle login
   Future<bool> login(String username, String password) async {
     await Future.delayed(const Duration(seconds: 2));
-    if (username == 'testuser' && password == '123456') {
+    if (username == 'hi' && password == 'test') {
       return true; 
     }
     return false; 

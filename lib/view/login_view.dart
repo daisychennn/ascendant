@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ascendant/view/my_button.dart';
 import 'package:ascendant/view/my_textfield.dart';
 import 'package:ascendant/view/create_profile_view.dart';
+import 'package:ascendant/view/home_screen.dart';
 import 'package:ascendant/view_model/login_view_model.dart';
 import 'package:get/get.dart';
 
@@ -30,11 +31,7 @@ class LoginPage extends StatelessWidget {
     // Attempt login
     final success = await loginViewModel.login(loginModel.username, loginModel.password);
     if (success) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('YAY SUCCESSFUL LOGIN')),
-      );
-      // Navigate to next page after successful login
-      // Get.to(() => SignUpFormWidget()); //  replace with user home page
+      Get.to(() => HomeScreen()); 
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Invalid username or password')),
