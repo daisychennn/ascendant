@@ -38,7 +38,7 @@ class _AccountView extends State<AccountView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  'images/logo_with_color.png',
+                  'images/logo_stars.png',
                   width: 400.0,
                 ),
                   const Padding(

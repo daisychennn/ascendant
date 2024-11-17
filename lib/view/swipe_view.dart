@@ -22,7 +22,7 @@ class _ProfileView extends State<ProfileView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  'images/logo_with_color.png',
+                  'images/logo_stars.png',
                   width: 200.0
                 ),
                 const Padding(
