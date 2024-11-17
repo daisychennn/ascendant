@@ -37,11 +37,13 @@ class _AccountView extends State<AccountView> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'images/logo_stars.png',
-                  width: 400.0,
+                Padding(padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+                  child: Image.asset(
+                    'images/logo_stars.png',
+                    width: 50.0,
+                  ),
                 ),
-                  const Padding(
+                const Padding(
                     padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
                     child: Icon(
                       Icons.account_circle_rounded,

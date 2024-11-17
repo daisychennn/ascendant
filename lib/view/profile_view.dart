@@ -21,9 +21,11 @@ class _ProfileView extends State<ProfileView> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'images/logo_stars.png',
-                  width: 200.0
+                Padding(padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+                  child: Image.asset(
+                    'images/logo_stars.png',
+                    width: 50.0,
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
@@ -47,7 +49,7 @@ class _ProfileView extends State<ProfileView> {
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Image.asset(
-                      'images/pfp.png',
+                      '',
                       width: 300
                     )
                   )
@@ -91,7 +93,7 @@ class _ProfileView extends State<ProfileView> {
             Padding(
               padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
               child: IconButton (
-                icon: const Icon(Icons.thumb_up, color: Colors.pink, size: 100),
+                icon: const Icon(Icons.thumb_up, color: Colors.pink, size: 50),
                 onPressed: () {
                   setState((){});
                 }
@@ -100,7 +102,7 @@ class _ProfileView extends State<ProfileView> {
             Padding(
               padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
               child: IconButton (
-                icon: const Icon(Icons.info, color: Colors.white, size: 100),
+                icon: const Icon(Icons.info, color: Colors.white, size: 50),
                 onPressed: () {
                   setState((){});
                 }
@@ -109,7 +111,7 @@ class _ProfileView extends State<ProfileView> {
             Padding(
               padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
               child: IconButton (
-                icon: const Icon(Icons.thumb_down, color: Colors.blueAccent, size: 100),
+                icon: const Icon(Icons.thumb_down, color: Colors.blueAccent, size: 50),
                 onPressed: () {
                   setState((){});
                 }

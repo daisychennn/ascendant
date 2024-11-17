@@ -21,9 +21,11 @@ class _ProfileView extends State<ProfileView> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  'images/logo_stars.png',
-                  width: 200.0
+                Padding(padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+                  child: Image.asset(
+                    'images/logo_stars.png',
+                    width: 50.0,
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
