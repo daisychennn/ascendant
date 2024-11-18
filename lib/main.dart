@@ -4,8 +4,10 @@ import 'package:ascendant/view/login_view.dart';
 import 'package:ascendant/view/messages_view.dart';
 import 'package:get/get.dart';
 import 'package:ascendant/theme.dart';
+import 'package:flutter/foundation.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
