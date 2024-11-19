@@ -1,0 +1,43 @@
+[
+    {
+      "email": "hi",
+      "password": "test",
+      "fullName": "John Doe",
+      "phoneNumber": "1234567890",
+      "biography": "This is a sample user 1.",
+      "sunSign": "Aries",
+      "moonSign": "Leo",
+      "risingSign": "Sagittarius"
+    },
+    {
+        "email": "alex",
+        "password": "test",
+        "fullName": "John Doe",
+        "phoneNumber": "1234567890",
+        "biography": "This is a sample user 2.",
+        "sunSign": "Aries",
+        "moonSign": "Leo",
+        "risingSign": "Sagittarius"
+      },
+      {
+        "email": "daisy",
+        "password": "test",
+        "fullName": "John Doe",
+        "phoneNumber": "1234567890",
+        "biography": "This is a sample user 3.",
+        "sunSign": "Aries",
+        "moonSign": "Leo",
+        "risingSign": "Sagittarius"
+      },
+      {
+        "email": "nhu",
+        "password": "test",
+        "fullName": "John Doe",
+        "phoneNumber": "1234567890",
+        "biography": "This is a sample user 4.",
+        "sunSign": "Aries",
+        "moonSign": "Leo",
+        "risingSign": "Sagittarius"
+      }
+  ]
+  

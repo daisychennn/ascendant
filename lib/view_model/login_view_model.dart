@@ -2,6 +2,11 @@ import 'package:ascendant/models/login_model.dart';
 import 'package:ascendant/models/user_model.dart';
 import 'package:ascendant/view_model/profile_view_model.dart';
 import 'package:ascendant/view_model/account_view_model.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'dart:convert'; 
+import 'package:flutter/services.dart';  // This is required for rootBundle
+
 
 class LoginViewModel {
   // Method to validate login credentials
@@ -12,13 +17,34 @@ class LoginViewModel {
   }
 
   // Method to handle login
-  Future<bool> login(String username, String password) async {
-    await Future.delayed(const Duration(seconds: 2));
-    if (username == 'hi' && password == 'test') {
-      return true; 
+  // Future<bool> login(String username, String password) async {
+  //   await Future.delayed(const Duration(seconds: 2));
+  //   if (username == 'hi' && password == 'test') {
+  //     return true; 
+  //   }
+  //   return false; 
+  // }
+
+Future<bool> login(String username, String password) async {
+  try {
+    // Load the users.json file from assets
+    final jsonString = await rootBundle.loadString('assets/users.json');
+
+    // Decode the JSON data
+    final List<dynamic> users = json.decode(jsonString);
+
+    // Validate the username and password
+    for (var user in users) {
+      if (user['email'] == username && user['password'] == password) {
+        return true; // Credentials match
+      }
     }
-    return false; 
+    return false; // Credentials do not match
+  } catch (e) {
+    print('Error during login: $e');
+    return false; // Return false in case of any errors
   }
+}
 
   // Create a LoginModel instance
   LoginModel createLoginModel(String username, String password) {
