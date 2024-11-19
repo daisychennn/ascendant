@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileView extends StatefulWidget {
@@ -10,9 +11,12 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileView extends State<ProfileView> {
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       backgroundColor: const Color.fromRGBO(235, 169, 248, 1.0),
       body: Center(
         child: Column(
@@ -88,7 +92,63 @@ class _ProfileView extends State<ProfileView> {
               child: IconButton (
                 icon: const Icon(Icons.info, color: Colors.white, size: 40),
                 onPressed: () {
-                  setState((){});
+                  showModalBottomSheet(
+                    context: context,
+                    constraints: BoxConstraints(
+                      maxWidth: Get.width,
+                    ),
+                    builder: (context) {
+                      return Wrap (
+                        children: [
+                          ListTile(
+                            minLeadingWidth: 100,
+                            tileColor: Colors.purpleAccent,
+                            leading: const Icon(
+                              Icons.close, color: Colors.white,
+                            ),
+                            title: Text('About Fiona FakePerson',
+                              style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white))
+                            ),
+                            onTap: () {
+                              Navigator.pop(context);
+                            }
+                          ),
+                          Container(
+                            width: Get.width,
+                            color: Colors.purpleAccent,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                              Text(
+                                'If loving this is wrong, I don\'t want to be right',
+                                style: GoogleFonts.prata().merge(const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
+                              ),
+                              Text(
+                                'Procrastination :)',
+                                style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
+                              ),
+                              Text(
+                                'First round is on me if',
+                                style: GoogleFonts.prata().merge(const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
+                              ),
+                              Text(
+                                'you can guess when I created this profile',
+                                style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
+                              ),
+                              Text(
+                                'I\'m convinced that',
+                                style: GoogleFonts.prata().merge(const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
+                              ),
+                              Text(
+                                'I should have started this earlier :(',
+                                style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
+                              )
+                            ],),
+                          )
+                        ]
+                      );
+                    }
+                  );
                 }
               ),
             ),
