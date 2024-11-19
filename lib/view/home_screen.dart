@@ -5,6 +5,7 @@ import 'package:ascendant/theme.dart';
 import 'package:ascendant/view/account_view.dart';
 import 'package:ascendant/view/profile_view.dart';
 import 'package:ascendant/view/messages_list_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -48,13 +49,10 @@ class HomeScreen extends StatelessWidget {
             );
           },
         ),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 24.0),
-            // child: Image.asset(
-            //   '/assets/images/logo_stars.png',
-            //   width: 30,
-            // ),
+            padding: EdgeInsets.only(right: 24.0),
+            child: Icon(CupertinoIcons.sparkles, color: Colors.yellow)
           ),
         ],
       ),
