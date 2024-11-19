@@ -28,6 +28,6 @@ class UserService {
   // Get the local file path for users.json
   Future<File> _getLocalFile() async {
     final directory = await getApplicationDocumentsDirectory();
-    return File('assets/users.json');
+    return File('${directory.path}/users.json');
   }
 }
