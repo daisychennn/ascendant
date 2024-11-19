@@ -5,7 +5,7 @@ import 'package:ascendant/view_model/account_view_model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:convert'; 
-import 'package:flutter/services.dart';  
+import 'package:flutter/services.dart';  // This is required for rootBundle
 
 
 class LoginViewModel {
