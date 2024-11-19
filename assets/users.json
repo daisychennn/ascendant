@@ -1,0 +1,13 @@
+[
+    {
+      "email": "hi",
+      "password": "test",
+      "fullName": "John Doe",
+      "phoneNumber": "1234567890",
+      "biography": "This is a sample user.",
+      "sunSign": "Aries",
+      "moonSign": "Leo",
+      "risingSign": "Sagittarius"
+    }
+  ]
+  
