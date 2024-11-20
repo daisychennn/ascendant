@@ -144,6 +144,10 @@ class _ProfileView extends State<ProfileView> {
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
                               )
                             ],),
+                          ),
+                          const ListTile(
+                            tileColor: Colors.purpleAccent,
+                            minLeadingWidth: 100,
                           )
                         ]
                       );
