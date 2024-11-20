@@ -7,6 +7,7 @@ import 'package:ascendant/view/profile_view.dart';
 import 'package:ascendant/view/messages_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -15,15 +16,15 @@ class HomeScreen extends StatelessWidget {
   final ValueNotifier<String> title = ValueNotifier("My Account");
 
   final pages = const [
-    AccountView(),
     ProfileView(),
     MessagesListView(),
+    AccountView(),
   ];
 
   final pageTitles = const [
-    "My Account",
     "My Matches",
     "Messages",
+    "My Account",
   ];
 
   void _onNavigationItemSelected(index) {
@@ -37,6 +38,18 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 5,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.close),
+              color: Colors.red,
+              tooltip: 'Are you sure you want to log out?',
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            );
+          }
+        ),
         title: ValueListenableBuilder(
           valueListenable: title,
           builder: (BuildContext context, String value, _) {
@@ -52,7 +65,7 @@ class HomeScreen extends StatelessWidget {
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 24.0),
-            child: Icon(CupertinoIcons.sparkles, color: Colors.yellow)
+            child: Icon(CupertinoIcons.sparkles, color: Colors.purpleAccent)
           ),
         ],
       ),
@@ -105,22 +118,22 @@ class __BottomNavigationBarState extends State<_BottomNavigationBar> {
                   children: [
                     _NavigationBarItem(
                       index: 0,
-                      label: 'Account',
-                      icon: Icons.face,
+                      label: 'Matches',
+                      icon: Icons.star,
                       isSelected: (selectedIndex == 0),
                       onTap: handleItemSelected,
                     ),
                     _NavigationBarItem(
                       index: 1,
-                      label: 'Matches',
-                      icon: Icons.star,
+                      label: 'Chat',
+                      icon: Icons.message,
                       isSelected: (selectedIndex == 1),
                       onTap: handleItemSelected,
                     ),
                     _NavigationBarItem(
                       index: 2,
-                      label: 'Chat',
-                      icon: Icons.message,
+                      label: 'Account',
+                      icon: Icons.face,
                       isSelected: (selectedIndex == 2),
                       onTap: handleItemSelected,
                     ),
