@@ -11,22 +11,21 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileView extends State<ProfileView> {
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _key,
       backgroundColor: const Color.fromRGBO(235, 169, 248, 1.0),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Fiona FakePerson',
-              style: GoogleFonts.prata().merge(const TextStyle(color: Colors.purple, fontSize: 40.0)),
-              textAlign: TextAlign.center,
-            ),
+          // Title
+          Text(
+            'Fiona FakePerson',
+            style: GoogleFonts.prata().merge(const TextStyle(color: Colors.purple, fontSize: 40.0)),
+            textAlign: TextAlign.center,
+          ),
+          // Profile Picture
           Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 20.0, 20.0),
                 child: Container(
@@ -44,6 +43,7 @@ class _ProfileView extends State<ProfileView> {
                     )
               ),
             ),
+            // Sun, Moon, and Rising Sign
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -70,6 +70,7 @@ class _ProfileView extends State<ProfileView> {
           ],
         ),
       ),
+      // Like, Dislike, and More Infor Features
       bottomNavigationBar: BottomAppBar(
         height: 100,
         color: const Color.fromARGB(178, 223, 64, 251),

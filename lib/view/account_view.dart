@@ -30,7 +30,7 @@ class _AccountView extends State<AccountView> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final cardWidth = screenWidth * 0.8; // 80% of screen width
+    final cardWidth = screenWidth * 0.75; // 80% of screen width
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(235, 168, 248, 1.0),
@@ -60,6 +60,7 @@ class _AccountView extends State<AccountView> {
                 ),
               )
             ),
+
             // User information that can be edited - will need actual data
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +74,6 @@ class _AccountView extends State<AccountView> {
                 Icon(Icons.cake, color: Colors.purple),
                 Text('21'),
             ],),
-            
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -92,10 +92,12 @@ class _AccountView extends State<AccountView> {
                 Icon(Icons.star, color: Colors.yellowAccent),
                 Text('Aries'),
             ],),
+
             // Editable User Information (prompts that appear in info)
             Center(
               child: Column(
               children: <Widget>[
+                // Prompt 1
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -130,6 +132,7 @@ class _AccountView extends State<AccountView> {
                     }
                   ),
                 ],),
+                // Answer 1
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -164,6 +167,7 @@ class _AccountView extends State<AccountView> {
                     }
                   ),
                 ],),
+                // Prompt 2
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -198,6 +202,7 @@ class _AccountView extends State<AccountView> {
                       }
                     ),
                 ]),
+                // Answer 2
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -232,6 +237,7 @@ class _AccountView extends State<AccountView> {
                     }
                   ),
                 ],),
+                // Prompt 3
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -266,6 +272,7 @@ class _AccountView extends State<AccountView> {
                       }
                     ),
                 ]),
+                // Answer 3 (padding to avoid cutoffs on screen)
                 Padding(padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
