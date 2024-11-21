@@ -29,18 +29,23 @@ class _AccountView extends State<AccountView> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final cardWidth = screenWidth * 0.8; // 80% of screen width
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(235, 168, 248, 1.0),
       body: Center(
+        // Creates a scrollable account setting page
         child: SingleChildScrollView(
           child: Column(
           children: [
+            // Container for the image: contains network image and darker purple border
             Center(
               child:
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0.0, 10.0, 20.0, 20.0),
                   child: Container(
-                      width: 200,
+                      width: cardWidth,
                       height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(
