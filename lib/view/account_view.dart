@@ -92,7 +92,7 @@ class _AccountView extends State<AccountView> {
                 Icon(Icons.star, color: Colors.yellowAccent),
                 Text('Aries'),
             ],),
-            // Editable User Information
+            // Editable User Information (prompts that appear in info)
             Center(
               child: Column(
               children: <Widget>[
@@ -104,7 +104,7 @@ class _AccountView extends State<AccountView> {
                       child: Icon(Icons.question_mark_rounded),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: cardWidth,
                       child: TextField(
                         controller: prompt1,
                         enabled: isEnabledP1,
@@ -138,7 +138,7 @@ class _AccountView extends State<AccountView> {
                     child: Icon(Icons.question_answer),
                   ),
                   SizedBox(
-                      width: 150,
+                      width: cardWidth,
                       child: TextField(
                         controller: answer1,
                         enabled: isEnabledA1,
@@ -172,7 +172,7 @@ class _AccountView extends State<AccountView> {
                       child: Icon(Icons.question_mark_rounded),
                     ),
                     SizedBox(
-                        width: 150,
+                        width: cardWidth,
                         child: TextField(
                           controller: prompt2,
                           enabled: isEnabledP2,
@@ -206,7 +206,7 @@ class _AccountView extends State<AccountView> {
                       child: Icon(Icons.question_answer),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: cardWidth,
                       child: TextField(
                         controller: answer2,
                         enabled: isEnabledA2,
@@ -240,7 +240,7 @@ class _AccountView extends State<AccountView> {
                       child: Icon(Icons.question_mark_rounded),
                     ),
                     SizedBox(
-                        width: 150,
+                        width: cardWidth,
                         child: TextField(
                           controller: prompt3,
                           enabled: isEnabledP3,
@@ -275,7 +275,7 @@ class _AccountView extends State<AccountView> {
                         child: Icon(Icons.question_answer),
                       ),
                       SizedBox(
-                        width: 150,
+                        width: cardWidth,
                         child: TextField(
                           controller: answer3,
                           enabled: isEnabledA3,
