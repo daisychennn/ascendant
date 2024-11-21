@@ -9,11 +9,12 @@ class SwipeView extends StatefulWidget {
   State<SwipeView> createState() => _SwipeView();
 }
 
+// STILL IN DEVELOPMENT - WILL BE THE MATCH PAGE (RIGHT NOW A VERSION OF PROFILE VIEW)
 class _SwipeView extends State<SwipeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(235, 169, 248, 1.0),
+      backgroundColor: const Color.fromARGB(0, 235, 169, 248),
       body: Center(
         child: Column(
           children: [
