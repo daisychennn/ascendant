@@ -1,3 +1,5 @@
+// source code from: https://github.com/HayesGordon/chatter/tree/tutorial-001-base-ui-complete
+
 import 'package:ascendant/models/messaging_model.dart';
 import 'package:ascendant/theme.dart';
 import 'package:ascendant/widgets/avatar.dart';
