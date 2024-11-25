@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ascendant/view/thankyou_view.dart';
+import 'package:get/get.dart';  
 
 class Survey extends StatelessWidget {
   const Survey({Key? key}) : super(key: key);
@@ -34,13 +36,12 @@ class Survey extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
+              Center( 
                 child: ElevatedButton(
                   onPressed: () {
-                    // Add your form submission logic here
+                    Get.to(() => ThankYouPage());
                   },
-                  child: const Text('Submit'),
+                  child: const Text('SUBMIT'),
                 ),
               ),
             ],
@@ -68,9 +69,7 @@ class Survey extends StatelessWidget {
             DropdownMenuItem(value: 'Yes', child: Text('Yes')),
             DropdownMenuItem(value: 'No', child: Text('No')),
           ],
-          onChanged: (value) {
-            // Handle dropdown value change
-          },
+          onChanged: (value) {},
           validator: (value) =>
               value == null ? 'Please select an option' : null,
         ),
