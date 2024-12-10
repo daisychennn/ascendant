@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-// import 'package:ascendant/view_model/account_view_model.dart';
+import 'package:ascendant/view_model/account_view_model.dart';
+import 'package:ascendant/models/user_model.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({super.key});
@@ -11,25 +12,42 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountView extends State<AccountView> {
-  TextEditingController prompt1 = TextEditingController(text: 'Dating me is like...');
+  UserModel prof1 = UserModel.createUser({
+    "picture" : const NetworkImage('https://images.unsplash.com/photo-1723200166097-4eed8c141f03?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'), 
+    "name" : "Natalie NotAName", "age" : 21,
+    "sun" : "Taurus", "moon" : "Leo", "rising" : "Aries",
+    "prompt_one" : "Dating me is like...", "answer_one" : "I'm not a real person",
+    "prompt_two" : "Don't hate me if I...", "answer_two" : "am a fake profile",
+    "prompt_three" : "I bet you can't...", "answer_three" : "find me! Still not real!"
+  });
+
+  TextEditingController prompt1 = TextEditingController(text: '');
   bool isEnabledP1 = false;
-  TextEditingController answer1 = TextEditingController(text: 'I\'m not a real person');
+  TextEditingController answer1 = TextEditingController(text: '');
   bool isEnabledA1 = false;
 
-  TextEditingController prompt2 = TextEditingController(text: 'Don\'t hate me if I...');
+  TextEditingController prompt2 = TextEditingController(text: '');
   bool isEnabledP2 = false;
-  TextEditingController answer2 = TextEditingController(text: 'am a fake profile');
+  TextEditingController answer2 = TextEditingController(text: '');
   bool isEnabledA2 = false;
 
-  TextEditingController prompt3 = TextEditingController(text: 'I bet you can\'t...');
+  TextEditingController prompt3 = TextEditingController(text: '');
   bool isEnabledP3 = false;
-  TextEditingController answer3 = TextEditingController(text: 'find me! Still not real!');
+  TextEditingController answer3 = TextEditingController(text: '');
   bool isEnabledA3 = false;
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final cardWidth = screenWidth * 0.75; // 80% of screen width
+
+    AccountViewModel avm = AccountViewModel(prof1);
+    prompt1.text = avm.getPrompt1[0];
+    answer1.text = avm.getPrompt1[1];
+    prompt2.text = avm.getPrompt2[0];
+    answer2.text = avm.getPrompt2[1];
+    prompt3.text = avm.getPrompt3[0];
+    answer3.text = avm.getPrompt3[1];
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(235, 168, 248, 1.0),
@@ -51,9 +69,9 @@ class _AccountView extends State<AccountView> {
                           color: Colors.purpleAccent,
                           width: 5,
                         ),
-                        image: const DecorationImage(
+                        image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage('https://images.unsplash.com/photo-1723200166097-4eed8c141f03?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+                          image: avm.getImage
                         )
                       )
                 ),
@@ -61,35 +79,35 @@ class _AccountView extends State<AccountView> {
             ),
 
             // User information that can be edited - will need actual data
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.person, color: Colors.purple),
-                Text('Natalie NotAName'),
+                const Icon(Icons.person, color: Colors.purple),
+                Text(avm.getName),
             ],),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.cake, color: Colors.purple),
-                Text('21'),
+                const Icon(Icons.cake, color: Colors.purple),
+                Text('${avm.getAge}'),
             ],),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.sunny, color: Colors.yellowAccent),
-                Text('Taurus'),
+                const Icon(Icons.sunny, color: Colors.yellowAccent),
+                Text(avm.getSunSign),
             ],),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(CupertinoIcons.moon, color: Colors.yellowAccent),
-                Text('Leo'),
+                const Icon(CupertinoIcons.moon, color: Colors.yellowAccent),
+                Text(avm.getMoonSign),
             ],),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star, color: Colors.yellowAccent),
-                Text('Aries'),
+                const Icon(Icons.star, color: Colors.yellowAccent),
+                Text(avm.getRisingSign),
             ],),
 
             // Editable User Information (prompts that appear in info)
@@ -122,6 +140,7 @@ class _AccountView extends State<AccountView> {
                     onPressed: () {
                       setState(() {
                         if (isEnabledP1) {
+                          avm.setPrompt1(prompt1.text, answer1.text);
                           isEnabledP1 = false;
                         }
                         else {
@@ -157,6 +176,7 @@ class _AccountView extends State<AccountView> {
                     onPressed: () {
                       setState(() {
                         if (isEnabledA1) {
+                          avm.setPrompt1(prompt1.text, answer1.text);
                           isEnabledA1 = false;
                         }
                         else {
@@ -192,6 +212,7 @@ class _AccountView extends State<AccountView> {
                       onPressed: () {
                         setState(() {
                           if (isEnabledP2) {
+                            avm.setPrompt2(prompt2.text, answer2.text);
                             isEnabledP2 = false;
                           }
                           else {
@@ -227,6 +248,7 @@ class _AccountView extends State<AccountView> {
                     onPressed: () {
                       setState(() {
                         if (isEnabledA2) {
+                          avm.setPrompt2(prompt2.text, answer2.text);
                           isEnabledA2 = false;
                         }
                         else {
@@ -262,6 +284,7 @@ class _AccountView extends State<AccountView> {
                       onPressed: () {
                         setState(() {
                           if (isEnabledP3) {
+                            avm.setPrompt3(prompt3.text, answer3.text);
                             isEnabledP3 = false;
                           }
                           else {
@@ -298,6 +321,7 @@ class _AccountView extends State<AccountView> {
                       onPressed: () {
                         setState(() {
                           if (isEnabledA3) {
+                            avm.setPrompt3(prompt3.text, answer3.text);
                             isEnabledA3 = false;
                           }
                           else {
