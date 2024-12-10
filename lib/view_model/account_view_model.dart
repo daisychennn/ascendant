@@ -10,6 +10,8 @@ class AccountViewModel {
 
   AccountViewModel(LoginModel loginModel) {
     login = loginModel;
-    user = ProfileViewModel.fetchMatchDetails(loginModel.username);
+
+    ProfileViewModel pvm = ProfileViewModel(loginModel.username);
+    user = pvm.fetchMatchDetails(loginModel.username);
   }
 }

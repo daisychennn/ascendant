@@ -1,16 +1,16 @@
-import 'dart:io';
+import 'package:flutter/material.dart';
 
 class UserModel {
-    File? picture; // Pictures only done through file upload
-    String? name;
-    int? age;
-    List<List<String>> prompts = List.empty(); // Set of three prompts with question/answer list
-    List<String> bigThree = List.empty(); // List of three astrological signs
+    NetworkImage picture = const NetworkImage(''); // Pictures only done through file upload
+    String name = '';
+    int age = -1;
+    List<List<String>> prompts = List.empty(growable: true); // Set of three prompts with question/answer list
+    List<String> bigThree = List.empty(growable: true); // List of three astrological signs
 
     // Getter methods for select objects
-    File? get getPicture => picture;
-    String? get getName => name;
-    int? get getAge => age;
+    NetworkImage get getPicture => picture;
+    String get getName => name;
+    int get getAge => age;
 
     // Constructor for UserModel object
     UserModel.createUser(Map<String, dynamic> json) {
@@ -18,9 +18,9 @@ class UserModel {
       picture = json['picture'];
       name = json['name'];
       age = json['age'];
-      bigThree[0] = json['sun'];
-      bigThree[1] = json['moon'];
-      bigThree[2] = json['rising'];
+      bigThree.add(json['sun']);
+      bigThree.add(json['moon']);
+      bigThree.add(json['rising']);
 
       // Checking for prompts (can have up to 3)
       if (json.containsKey('prompt_one')) {
@@ -40,11 +40,8 @@ class UserModel {
     }
 
     // Getter method for prompts
-    List<List<String>>? getPrompts() {
-      if (prompts.isNotEmpty) {
-        return prompts;
-      }
-      return null;
+    List<List<String>> getPrompts() {
+      return prompts;
     }
 
     // Getter method for Big Three Sign list

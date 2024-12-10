@@ -8,7 +8,6 @@ class AccountView extends StatefulWidget {
 
   @override
   State<AccountView> createState() => _AccountView();
-  // AccountViewModel account; - will use to send data
 }
 
 class _AccountView extends State<AccountView> {
