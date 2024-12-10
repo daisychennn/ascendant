@@ -18,9 +18,6 @@ class MessagesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
-          child: _Recents(),
-        ),
         SliverList(
           delegate: SliverChildBuilderDelegate(_delegate),
         ),
@@ -135,90 +132,5 @@ class _Messages extends StatelessWidget {
                     ),
                   ],
                 ))));
-  }
-}
-
-class _Recents extends StatelessWidget {
-  _Recents({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        margin: const EdgeInsets.only(top: 8),
-        elevation: 0,
-        child: SizedBox(
-          height: 134,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                  padding: EdgeInsets.only(
-                    left: 16.0,
-                    top: 4.0,
-                    bottom: 8.0,
-                  ),
-                  child: Text(
-                    "Recents",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 15,
-                      color: AppColors.textFaded,
-                    ),
-                  )),
-              Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    // might need to change later to use other data
-                    final faker = Faker();
-                    return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                            width: 60,
-                            child: _RecentsCard(
-                                recentsModel: RecentsModel(
-                              name: faker.person.name(),
-                              url: Helpers.randomPictureUrl(),
-                            ))));
-                  },
-                ),
-              )
-            ],
-          ),
-        ));
-  }
-}
-
-class _RecentsCard extends StatelessWidget {
-  const _RecentsCard({
-    Key? key,
-    required this.recentsModel,
-  }) : super(key: key);
-
-  final RecentsModel recentsModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Avatar.medium(url: recentsModel.url),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 16.0),
-            child: Text(
-              recentsModel.name,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 11,
-                letterSpacing: 0.3,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }

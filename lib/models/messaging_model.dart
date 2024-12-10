@@ -1,15 +1,5 @@
 import 'package:flutter/material.dart';
 
-class RecentsModel {
-  final String name;
-  final String url;
-
-  RecentsModel({
-    required this.name,
-    required this.url,
-  });
-}
-
 class MessageModel {
   const MessageModel({
     required this.senderName,

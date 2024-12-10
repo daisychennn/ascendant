@@ -23,6 +23,7 @@ class MessagesView extends StatefulWidget {
 class _MessagesViewState extends State<MessagesView> {
   final List<types.Message> _messages = [];
   final _user = const types.User(id: '82091008-a484-4a89-ae75-a22bf8d6f3ac');
+  final _bot = const types.User(id: '82091008-a484-4a89-ae75-a22bf8d6f3ad');
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -52,5 +53,36 @@ class _MessagesViewState extends State<MessagesView> {
     );
 
     _addMessage(textMessage);
+
+    _simulateBotResponse(message.text);
+  }
+
+  void _simulateBotResponse(String userMessage) {
+    Future.delayed(const Duration(seconds: 1), () {
+      final botReply = _generateBotResponse(userMessage);
+
+      final botMessage = types.TextMessage(
+        author: _bot,
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        id: randomString(),
+        text: botReply,
+      );
+
+      _addMessage(botMessage);
+    });
+
+  }
+
+  String _generateBotResponse(String userMessage) {
+    // Example logic for bot responses
+    if (userMessage.toLowerCase().contains('hey')) {
+      return 'Hi there! How are you?';
+    } else if (userMessage.toLowerCase().contains('how are you')) {
+      return 'I’m just a bot, but I’m functioning as expected! 😊';
+    } else if (userMessage.toLowerCase().contains('hi')) {
+      return 'Are you a Libra? Because youd balance out my life perfectly';
+    } else {
+      return 'So nice to meet you!';
+    }
   }
 }
