@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:ascendant/view_model/profile_view_model.dart';
+import 'package:ascendant/models/user_model.dart';
+
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
 
@@ -11,8 +14,30 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileView extends State<ProfileView> {
+  ProfileViewModel pvm = ProfileViewModel('prof1@fake.email');
+  UserModel? profile;
+
   @override
   Widget build(BuildContext context) {
+    if (profile == null) {
+      if (pvm.nextProfile() != null) {
+        profile = pvm.nextProfile();
+      }
+      else {
+        return Scaffold(
+          backgroundColor:  const Color.fromRGBO(235, 169, 248, 1.0),
+          body: Center(
+            child: Text('No more matches :(',
+              style: GoogleFonts.prata()
+                .merge(Theme.of(context).textTheme.headlineLarge)
+                .merge(const TextStyle(color: Colors.purpleAccent, fontWeight: FontWeight.bold))
+            )
+          )
+        );
+      }
+    }
+    UserModel currProf = profile as UserModel;
+    
     return Scaffold(
       backgroundColor: const Color.fromRGBO(235, 169, 248, 1.0),
       body: Center(
@@ -21,7 +46,7 @@ class _ProfileView extends State<ProfileView> {
           children: [
           // Title
           Text(
-            'Fiona FakePerson',
+            currProf.getName,
             style: GoogleFonts.prata().merge(const TextStyle(color: Colors.purple, fontSize: 40.0)),
             textAlign: TextAlign.center,
           ),
@@ -36,9 +61,9 @@ class _ProfileView extends State<ProfileView> {
                         color: Colors.purpleAccent,
                         width: 5,
                       ),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage('https://images.unsplash.com/photo-1632324343640-86af9827dbeb?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+                        image: currProf.getPicture
                       )
                     )
               ),
@@ -51,19 +76,19 @@ class _ProfileView extends State<ProfileView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(Icons.sunny, color: Colors.yellowAccent),
-                    Text('Gemini', style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white))),
+                    Text(currProf.getBigThree()[0], style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white))),
                 ]),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(CupertinoIcons.moon, color: Colors.yellowAccent),
-                    Text('Virgo', style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white))),
+                    Text(currProf.getBigThree()[1], style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white))),
                 ]),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(Icons.star, color: Colors.yellowAccent),
-                    Text('Libra', style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white)))
+                    Text(currProf.getBigThree()[2], style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white)))
                 ])
               ],
             )
@@ -84,7 +109,10 @@ class _ProfileView extends State<ProfileView> {
               child: IconButton (
                 icon: const Icon(Icons.thumb_up, color: Colors.pink, size: 40),
                 onPressed: () {
-                  setState((){});
+                  setState((){
+                    pvm.addMatch(pvm.fetchMatchEmail(currProf));
+                    profile = pvm.nextProfile();
+                  });
                 }
               ),
             ),
@@ -107,7 +135,7 @@ class _ProfileView extends State<ProfileView> {
                             leading: const Icon(
                               Icons.close, color: Colors.white,
                             ),
-                            title: Text('About Fiona FakePerson',
+                            title: Text('About ${currProf.getName}',
                               style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white))
                             ),
                             onTap: () {
@@ -121,27 +149,27 @@ class _ProfileView extends State<ProfileView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                               Text(
-                                'If loving this is wrong, I don\'t want to be right',
+                                currProf.getPrompts()[0][0],
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
                               ),
                               Text(
-                                'Procrastination :)',
+                                currProf.getPrompts()[0][1],
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
                               ),
                               Text(
-                                'First round is on me if',
+                                currProf.getPrompts()[1][0],
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
                               ),
                               Text(
-                                'you can guess when I created this profile',
+                                currProf.getPrompts()[1][1],
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
                               ),
                               Text(
-                                'I\'m convinced that',
+                                currProf.getPrompts()[2][0],
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.black, fontWeight: FontWeight.bold))
                               ),
                               Text(
-                                'I should have started this earlier :(',
+                                currProf.getPrompts()[2][1],
                                 style: GoogleFonts.prata().merge(const TextStyle(color: Colors.white, fontStyle: FontStyle.italic))
                               )
                             ],),
@@ -162,7 +190,9 @@ class _ProfileView extends State<ProfileView> {
               child: IconButton (
                 icon: const Icon(Icons.thumb_down, color: Colors.lightBlueAccent, size: 40),
                 onPressed: () {
-                  setState((){});
+                  setState((){
+                    profile = pvm.nextProfile();
+                  });
                 }
               )
             )
