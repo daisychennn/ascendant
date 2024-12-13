@@ -83,6 +83,7 @@ class LoginPage extends StatelessWidget {
               MyButton(
                 onLoginPressed: () => _handleLogin(context),
                 onCreateProfilePressed: () => _navigateToCreateProfile(context),
+                onSignWebsite: null, 
               ),
             ],
           ),

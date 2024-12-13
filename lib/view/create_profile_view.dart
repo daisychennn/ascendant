@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ascendant/view_model/user_service.dart';
 import 'package:ascendant/view/survey_view.dart';
 import 'package:get/get.dart';
+import 'package:ascendant/view/my_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   SignUpFormWidget({Key? key}) : super(key: key);
@@ -15,6 +17,15 @@ class SignUpFormWidget extends StatelessWidget {
   final sunSignController = TextEditingController();
   final moonSignController = TextEditingController();
   final risingSignController = TextEditingController();
+
+  Future<void> _launchSignWebsite() async {
+    const url = 'https://www.astrosofa.com/horoscope/ascendant';
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   void _saveProfile(BuildContext context) async {
     final fullName = fullNameController.text.trim();
@@ -98,6 +109,12 @@ class SignUpFormWidget extends StatelessWidget {
                     label: Text('User\'s biography'),
                     prefixIcon: Icon(Icons.format_color_text),
                   ),
+                ),
+                const SizedBox(height: 10),
+                MyButton(
+                  onLoginPressed: null,  
+                  onCreateProfilePressed: null, 
+                  onSignWebsite: _launchSignWebsite, 
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
