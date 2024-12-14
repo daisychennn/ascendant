@@ -150,6 +150,7 @@ class ProfileViewModel {
     profileMap["prof10@fake.email"] = prof10;
     profileMap["prof11@fake.email"] = prof11;
     profileMap["prof12@fake.email"] = prof12;
+    profileMap["prof13@fake.email"] = prof13;
   }
 
   // Adds profile mapping to profileMap object
