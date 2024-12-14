@@ -115,6 +115,15 @@ class ProfileViewModel {
     "prompt_three" : "The dorkiest thing about me is...", "answer_three" : "I have a playlist for different shower moods."
   });
 
+  UserModel prof13 = UserModel.createUser({
+    "picture" : const NetworkImage('https://static.wikia.nocookie.net/newgirl/images/d/db/Cece_Season_7.jpg/revision/latest?cb=20180119135423'),
+    "name" : "Cece Parekh", "age" : 30,
+    "sun" : "Taurus", "moon" : "Leo", "rising" : "Aries",
+    "prompt_one" : "I'll brag about you to my friends if", "answer_one" : "You don't skip moisturizer.",
+    "prompt_two" : "I'm looking for", "answer_two" : "A fellow romance-movies hater",
+    "prompt_three" : "My self-care routine is", "answer_three" : "Cucumbers. Both to eat and put on my face."
+  });
+
   // Map of currently existing users
   Map<String, UserModel> profileMap = {};
   // Map of user matches
