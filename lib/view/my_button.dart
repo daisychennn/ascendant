@@ -84,8 +84,8 @@ class MyButton extends StatelessWidget {
               child: const Text(
                 'Don\'t know your sign? Click here.',
                 style: TextStyle(
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
+                  color: Color(0xFF4B0082),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
